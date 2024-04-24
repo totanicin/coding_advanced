@@ -33,23 +33,21 @@
                 </div>
             </div>
         </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const hamburgerMenu = document.querySelector('.hamburger-menu');
-                const navigationContainer = document.querySelector('.navigation-container');
-                const pageContent = document.querySelector('.page-content');
-
-                    hamburgerMenu.addEventListener('click', function () {
-                    navigationContainer.classList.toggle('show');
-                    if (navigationContainer.classList.contains('show')) {
-                        pageContent.style.marginTop = "350px"; 
-                    } else {
-                        pageContent.style.marginTop = "0";
-                    }
-                });
+    </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.hamburger-menu').click(function() {
+            $('.navigation').slideToggle('slow', function() {
+                if ($(this).is(':visible')) {
+                    $('.page-content').css('margin-top', '200px');
+                } else {
+                    $('.page-content').css('margin-top', '0');
+                }
             });
-
-        </script>
+        });
+    });
+</script>
     </header>    
     
     <div class="page-content">
