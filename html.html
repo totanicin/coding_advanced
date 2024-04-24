@@ -24,6 +24,8 @@
                         <li><a href="#">お問合せ</a></li>
                     <li><input type="text" placeholder="Search"></li>
                     <li><button type="submit">Search</button></li>
+                    </ul>
+                </nav>
                 </div>
                 <div class="hamburger-menu" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i>
@@ -99,39 +101,45 @@
     <h2>新型コロナウイルスに対する取り組みの最新情報をご案内</h2>
 </div>
 
-<div class="content-section hygiene">
-    <h2 class="toggle">■衛生面に関して</h2>
-    <ul class="content-list">
+<div class="accordion">
+    <div class="accordion-item">
+    <div class="accordion-header">■衛生面に関して</div>
+    <div class="accordion-content">
         <li>・マスクを着用しての接客</li>
         <li>・出勤前の検温の確認</li>
         <li>・レジカウンターやドリンク受け渡し口等への飛沫防止ガードの設置</li>
         <li>・より頻度の高い手洗いの励行</li>
         <li>・テーブルにお客様用の消毒用アルコールの設置</li>
         <li>・従業員間の距離確保ため、休憩や研修時の客席利用</li>
-    </ul>
+    </div>
+    </div>
 </div>
 
-<div class="content-section cooperation">
-    <h2 class="toggle">■お客様へのご協力のお願い</h2>
-    <ul class="content-list">
+<div class="accordion">
+    <div class="accordion-item">
+        <div class="accordion-header">■お客様へのご協力のお願い</div>
+    <div class="accordion-content">
         <li>・店内では、飲食時以外のマスク着用をお願いいたします</li>
         <li>・入店時の手指の消毒にご協力ください</li>
         <li>・レジに並ぶ際、目安を示すフロアステッカーに沿った列間隔の確保にご協力ください</li>
         <li>・多数でお越しの際は、お1人がまとめてご注文願います（混雑時に入場制限をする場合がございます）</li>
         <li>・発熱や体調不良の際はご入店をお控えください</li>
-    </ul>
+    </div>
+    </div>
 </div>
 
-<div class="content-section service">
-    <h2 class="toggle">■サービスに関して</h2>
-    <ul class="content-list">
+<div class="accordion">
+    <div class="accordion-item">
+        <div class="accordion-header">■サービスに関して</div>
+            <div class="accordion-content">
         <li>・直接接触しません商品の提供、金銭授受にトレーの活用</li>
         <li>・ドリンクやフードのサンプリング中止</li>
         <li>・地域活動・イベントの中止</li>
         <li>・混雑時間帯の客席の譲り合いへのご協力お願いの実施</li>
         <li>・店内設置しているミルク、はちみつ、パウダー類の一時引き下げ</li>
         <li>・混雑状況に応じたドライブスルーサービスの一時休止や店内客席利用の制限</li>
-    </ul>
+            </div>
+    </div>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -144,7 +152,7 @@
         });
     });
     </script>
-
+<div class="container fade-in">
     <section class="container">
         <h3>Signature Food</h3>
         <div class="content">
@@ -152,7 +160,8 @@
             <p>サーモンは刺身やカルパッチョで食べるのが美味しいですが、リッチな気分になれるサーモンステーキがおすすめです。サーモンのおいしさを引き立てる2種のソースも絶品です！</p>
         </div>
     </section>
-    
+</div>
+<div class="container fade-in">
     <section class="container">
         <h3>Our Coffee</h3>
         <div class="content">
@@ -160,7 +169,8 @@
             <p>当店のコーヒー豆が厳選して世界中から買い付けています。そして、そのコーヒー豆のおいしさを最大限に引き出すために自社のロースタリーで焙煎しています。</p>
         </div>
     </section>
-    
+</div>
+<div class="container fade-in">
     <section class="container">
         <h3>Our Food</h3>
         <div class="content">
@@ -168,7 +178,8 @@
             <p>当店は何よりまずは衛生管理に気をつけています。「安全・安心」をお届けするために日々継続的な努力を惜しみません。</p>
         </div>
     </section>
-
+</div>
+<div class="container fade-in">
     <section class="info-section">
         <div class="info-content">
             <h2>Address</h2>
@@ -181,8 +192,8 @@
             <img src="./img/barista.jpg?raw=true" alt="Our Coffee">
         </div>
     </section>
-
-
+</div>
+<div class="container fade-in">
     <div class="store-list-section">
         <h2 class="store-list-title">店舗一覧</h2>
         <div class="gallery">
@@ -210,6 +221,7 @@
     </div>
 </div>
 </div>
+</div>
 
     
     <footer>
@@ -221,5 +233,44 @@
         </div>
     </footer>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1 
+            });
+
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+</script>
+<script>
+const accordionItems = document.querySelectorAll('.accordion-item');
+accordionItems.forEach(item => {
+  const header = item.querySelector('.accordion-header');
+  const content = item.querySelector('.accordion-content');
+  header.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
+    const activeItem = document.querySelector('.accordion-item.active');
+    if (activeItem && activeItem !== item) {
+      const activeItemContent = activeItem.querySelector('.accordion-content');
+      activeItem.classList.remove('active');
+      activeItemContent.style.maxHeight = 0;
+    }
+    if (!isActive) {
+      item.classList.add('active');
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      item.classList.remove('active');
+      content.style.maxHeight = 0;
+    }
+  });
+});
+</script>
 </body>
 </html>
