@@ -60,11 +60,12 @@ body {
 
 .search-bar {
     display: flex;
+    align-items: center;
 }
 
 .search-bar input {
     padding: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .search-bar button {
@@ -73,7 +74,9 @@ body {
     color: #333;
     border: none;
     cursor: pointer;
+    margin-left: 5px;
 }
+
 
 .swiper-slide img {
     width: 100%;   
@@ -402,6 +405,8 @@ section::after {
 @media (max-width: 768px) {
     .navigation, .search-bar {
         display: none;  
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .swiper-slide {
