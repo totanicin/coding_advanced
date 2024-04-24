@@ -477,8 +477,6 @@ section::after {
         background-color: lightgray; 
         transition: transform 0.5s ease, opacity 0.5s ease; 
     }
-    
-    }
 
     .navigation ul {
         width: 100%;
@@ -500,8 +498,9 @@ section::after {
         display: none; 
         position: left;
     }
-    
 }
+    
+
 @keyframes fadeIn {
     from {
       opacity: 0;
