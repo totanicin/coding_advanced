@@ -41,21 +41,20 @@ body {
     font-size: 24px;
 }
 
-.navigation ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end; 
-    margin: 0;
-    padding: 0;
+.navigation {
+    list-style: none; /* リストの点を消す */
+    display: flex; /* フレックスボックスを適用 */
+    justify-content: flex-end; /* フレックスアイテムを右端に寄せる */
+    margin: 0; /* マージンを0に */
+    padding: 0; /* パディングを0に */
 }
 
-.navigation ul li {
-    margin-left: 20px; 
+.navigation li {
+    margin-left: 20px; /* リストアイテム間の間隔を設定 */
 }
 
-
-.navigation ul li a {
-    color: black;
+.navigation li a {
+    color: black; /* リンクの色を黒に設定 */
 }
 
 .search-bar {
@@ -76,6 +75,7 @@ body {
     cursor: pointer;
     margin-left: 5px;
 }
+
 
 
 .swiper-slide img {
@@ -455,48 +455,28 @@ section::after {
 }
 
 @media (max-width: 768px) {
-    .header-container {
-        position: relative;
-      }
 
     .hamburger-menu {
         display: block;
         position: absolute; 
         right: 10px;
         top: 10px;
-        z-index: 5;
-      }
-
+    }
     .navigation {
-        display: none; 
-        flex-direction: column; 
-        width: 100%; 
-        position: fixed; 
-        top: 40px; 
-        left: 0;
-        background-color: lightgray; 
-        transition: transform 0.5s ease, opacity 0.5s ease; 
+        display: none;
+        transition: 0.5s;
     }
-
-    .navigation ul {
-        width: 100%;
-        flex-direction: column; 
+    .navigation.show {
+        display: block;
+        animation: show 1s linear 0s;
     }
-
-    .navigation ul li {
-        text-align: left; 
-        padding: 10px 0; 
-        width: 100%; 
-    }
-
-    .show .hamburger-menu {
-        max-height: 1000px;
-        transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-    }
-
-    .navigation-container .navigation {
-        display: none; 
-        position: left;
+    @keyframes show {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
     }
 }
     

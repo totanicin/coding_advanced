@@ -15,9 +15,9 @@
             <div class="brand">
                 <h1>Casteria</h1>
             </div>
-            <div class="navigation-container">
-                <nav class="navigation">
-                    <ul>
+            <div class="-container">
+                <p class="main_menu"></p>
+                <ul class="navigation">
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Food</a></li>
                             <li><a href="#">Drink</a></li>
@@ -25,29 +25,25 @@
                         <li><input type="text" placeholder="Search">
                             <button type="submit">Search</button>
                         </li>
-                    </ul>
-                </nav>
-                </div>
+                </ul>
+            </div>
                 <div class="hamburger-menu" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i>
                 </div>
             </div>
         </div>
     </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.hamburger-menu').click(function() {
-            $('.navigation').slideToggle('slow', function() {
-                if ($(this).is(':visible')) {
-                    $('.page-content').css('margin-top', '200px');
-                } else {
-                    $('.page-content').css('margin-top', '0');
-                }
-            });
-        });
-    });
-</script>
+    <script>
+        $('.main_menu').hover(
+            function() {
+                //マウスカーソルが重なった時の処理
+                $(this).next('.navigation').addClass('show');
+            },
+            function() {
+                $(this).next('.navigation').removeClass('show');
+            }
+        );
+    </script>
     </header>    
     
     <div class="page-content">
