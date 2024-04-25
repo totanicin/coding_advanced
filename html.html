@@ -15,8 +15,7 @@
             <div class="brand">
                 <h1>Casteria</h1>
             </div>
-            <div class="-container">
-                <p class="main_menu"></p>
+            <div class="container">
                 <ul class="navigation">
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Food</a></li>
@@ -34,15 +33,16 @@
         </div>
     </div>
     <script>
-        $('.main_menu').hover(
-            function() {
-                //マウスカーソルが重なった時の処理
-                $(this).next('.navigation').addClass('show');
-            },
-            function() {
-                $(this).next('.navigation').removeClass('show');
-            }
-        );
+function toggleMenu() {
+    var navigation = document.querySelector('.navigation');
+    if (navigation.classList.contains('show')) {
+        navigation.classList.remove('show');
+        navigation.style.maxHeight = '0';
+    } else {
+        navigation.classList.add('show');
+        navigation.style.maxHeight = navigation.scrollHeight + 'px';
+    }
+}
     </script>
     </header>    
     

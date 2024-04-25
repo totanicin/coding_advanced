@@ -31,7 +31,6 @@ body {
     color: black;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 10px;
 }
 
@@ -455,31 +454,59 @@ section::after {
 }
 
 @media (max-width: 768px) {
-
     .hamburger-menu {
         display: block;
-        position: absolute; 
+        position: absolute;
         right: 10px;
         top: 10px;
+        z-index: 1000;
     }
+
+    .header-container {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
     .navigation {
-        display: none;
-        transition: 0.5s;
-    }
-    .navigation.show {
+        width: 100%;
+        background-color: lightgray;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease-in-out;
         display: block;
-        animation: show 1s linear 0s;
+        padding-left: 0;
+        top: calc(100% + 50px);
+        left: 0;
+        z-index: 100000;
     }
-    @keyframes show {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+    
+    .navigation.show {
+        max-height: 1000px;
+    }
+
+    .navigation li {
+        text-align: left;
+        list-style-type: none;
+        padding: 10px 20px;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-container input {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    .search-container button {
+        flex: 0 0 auto;
     }
 }
-    
+
+
+
 
 @keyframes fadeIn {
     from {
