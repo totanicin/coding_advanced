@@ -465,6 +465,7 @@ section::after {
     .header-container {
         position: relative;
         flex-wrap: wrap;
+        flex-direction: column;
     }
 
     .navigation {
@@ -487,7 +488,8 @@ section::after {
     .navigation li {
         text-align: left;
         list-style-type: none;
-        padding: 10px 20px;
+        padding: 10px;
+        margin-left: 8%;
     }
 
     .search-container {
